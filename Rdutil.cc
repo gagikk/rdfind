@@ -558,3 +558,8 @@ Rdutil::fillwithbytes(enum Fileinfo::readtobuffermode type,
   }
   return 0;
 }
+
+void Rdutil::protect_same_tree(bool protection)
+{
+  m_protectSameTree = protection;
+}

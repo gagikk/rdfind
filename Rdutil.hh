@@ -16,8 +16,8 @@
 class Rdutil
 {
 public:
-  explicit Rdutil(std::vector<Fileinfo>& list, bool protectSameTree)
-    : m_list(list), m_protectSameTree(protectSameTree) {};
+  explicit Rdutil(std::vector<Fileinfo>& list)
+    : m_list(list) {};
 
   /**
    * print file names to a file, with extra information.
@@ -99,6 +99,8 @@ public:
   /// delete duplicates from file system.
   std::size_t deleteduplicates(bool dryrun) const;
 
+  void protect_same_tree(bool protection);
+
   /**
    * gets the total size, in bytes.
    * @param opmode 0 just add everything, 1 only elements with
@@ -121,7 +123,7 @@ public:
 
 private:
   std::vector<Fileinfo>& m_list;
-  bool m_protectSameTree;
+  bool m_protectSameTree {false};
 };
 
 #endif

@@ -295,7 +295,9 @@ main(int narg, const char* argv[])
   const std::string dryruntext(o.dryrun ? "(DRYRUN MODE) " : "");
 
   // an object to do sorting and duplicate finding
-  Rdutil gswd(filelist, o.protectsametree);
+  Rdutil gswd(filelist);
+
+  gswd.protect_same_tree(o.protectsametree);
 
   // an object to traverse the directory structure
   Dirlist dirlist(o.followsymlinks);
