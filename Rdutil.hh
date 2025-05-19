@@ -17,7 +17,9 @@ class Rdutil
 {
 public:
   explicit Rdutil(std::vector<Fileinfo>& list)
-    : m_list(list) {};
+    : m_list(list)
+  {
+  }
 
   /**
    * print file names to a file, with extra information.
@@ -86,9 +88,9 @@ public:
   // if there is trouble with too much disk reading, sleeping for nsecsleep
   // nanoseconds can be made between each file.
   int fillwithbytes(enum Fileinfo::readtobuffermode type,
-                    enum Fileinfo::readtobuffermode lasttype =
-                      Fileinfo::readtobuffermode::NOT_DEFINED,
-                    long nsecsleep = 0);
+                    enum Fileinfo::readtobuffermode lasttype,
+                    long nsecsleep,
+                    std::size_t buffersize);
 
   /// make symlinks of duplicates.
   std::size_t makesymlinks(bool dryrun) const;
